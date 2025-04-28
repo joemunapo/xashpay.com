@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XashPay - Global Bill Payments & Airtime</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/enhanced-styles.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        xashBlue: {
+                            light: '#1E88E5',
+                            dark: '#0D47A1'
+                        },
+                        xashPink: {
+                            light: '#FF4081',
+                            dark: '#C2185B'
+                        },
+                        xashGreen: '#00E676',
+                        xashPurple: '#9C27B0'
+                    },
+                    fontFamily: {
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-[#0D47A1] text-white">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-3xl font-bold font-montserrat gradient-text">XashPay</a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-[#FF4081] transition-colors">Home</a>
+                <a href="#about" class="hover:text-[#FF4081] transition-colors">About</a>
+                <a href="#services" class="hover:text-[#FF4081] transition-colors">Services</a>
+                <a href="#partners" class="hover:text-[#FF4081] transition-colors">Global</a>
+                <a href="#signup" class="hover:text-[#FF4081] transition-colors">Earn</a>
+                <a href="#contact" class="hover:text-[#FF4081] transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="hover:text-[#FF4081] transition-colors">Home</a>
+                <a href="#about" class="hover:text-[#FF4081] transition-colors">About</a>
+                <a href="#services" class="hover:text-[#FF4081] transition-colors">Services</a>
+                <a href="#partners" class="hover:text-[#FF4081] transition-colors">Global</a>
+                <a href="#signup" class="hover:text-[#FF4081] transition-colors">Earn</a>
+                <a href="#contact" class="hover:text-[#FF4081] transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 pb-16">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <!-- Hero Text Content -->
+            <div class="w-full md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold font-montserrat mb-6">Global Payments Made Simple</h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-200">Buy or sell international airtime, data, electricity, and vouchers across <span class="font-bold text-[#00E676]">multiple countries</span> via WhatsApp</p>
+
+                <!-- Commission Badge -->
+                <div class="commission-badge mb-8 inline-block">
+                    <span class="text-3xl font-bold">upto 10%</span> Commission
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="whatsapp://send?phone=+27655971539" class="btn-gradient px-8 py-4 text-lg font-semibold rounded-full inline-flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2 text-2xl"></i> Start on WhatsApp
+                    </a>
+                    <a href="#signup" class="btn-action inline-flex items-center justify-center">
+                        <i class="fas fa-money-bill-wave mr-2"></i> Become a Reseller
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image/Animation -->
+            <div class="w-full md:w-1/2 relative">
+                <div class="relative z-10 float-animation">
+                    <!-- Phone Mockup with Country Flags -->
+                    <div class="relative mx-auto w-64 h-[500px] bg-gray-900 rounded-[40px] shadow-2xl border-4 border-gray-800 overflow-hidden">
+                        <!-- Phone Screen -->
+                        <div class="absolute inset-2 bg-white rounded-[32px] overflow-hidden">
+                            <!-- WhatsApp Interface -->
+                            <div class="h-full flex flex-col">
+                                <!-- WhatsApp Header -->
+                                <div class="bg-[#075E54] text-white p-3 flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center mr-3">
+                                        <span class="text-[#075E54] font-bold">X</span>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold">XashPay</div>
+                                        <div class="text-xs">Online</div>
+                                    </div>
+                                </div>
+
+                                <!-- Chat Background -->
+                                <div class="flex-1 bg-[#ECE5DD] p-3 overflow-y-auto flex flex-col space-y-2">
+                                    <!-- Message Bubbles -->
+                                    <div class="bg-white rounded-lg p-2 max-w-[80%] self-start shadow-sm">
+                                        <p class="text-sm text-gray-800">Welcome to XashPay! How can I help you today?</p>
+                                        <p class="text-[10px] text-gray-500 text-right">10:30 AM</p>
+                                    </div>
+
+                                    <div class="bg-[#DCF8C6] rounded-lg p-2 max-w-[80%] self-end shadow-sm">
+                                        <p class="text-sm text-gray-800">I need to buy airtime for a number in Nigeria</p>
+                                        <p class="text-[10px] text-gray-500 text-right">10:31 AM</p>
+                                    </div>
+
+                                    <div class="bg-white rounded-lg p-2 max-w-[80%] self-start shadow-sm">
+                                        <p class="text-sm text-gray-800">Sure! Please provide the phone number and amount.</p>
+                                        <p class="text-[10px] text-gray-500 text-right">10:31 AM</p>
+                                    </div>
+                                </div>
+
+                                <!-- Input Area -->
+                                <div class="bg-[#F0F0F0] p-2 flex items-center">
+                                    <div class="bg-white rounded-full flex-1 px-4 py-2 text-sm text-gray-800">Type a message</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phone Notch -->
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-gray-900 rounded-b-xl"></div>
+                    </div>
+
+                    <!-- Floating Country Flags -->
+                    <div class="absolute top-10 -left-10 w-16 h-10 bg-green-600 rounded-md shadow-lg transform rotate-12 animate-[float_5s_ease-in-out_infinite]" style="animation-delay: 0.5s;">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold">🇳🇬</div>
+                    </div>
+
+                    <div class="absolute top-20 -right-8 w-16 h-10 bg-blue-600 rounded-md shadow-lg transform -rotate-12 animate-[float_4s_ease-in-out_infinite]" style="animation-delay: 1s;">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold">🇿🇦</div>
+                    </div>
+
+                    <div class="absolute bottom-40 -left-12 w-16 h-10 bg-red-600 rounded-md shadow-lg transform rotate-6 animate-[float_6s_ease-in-out_infinite]" style="animation-delay: 1.5s;">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold">🇰🇪</div>
+                    </div>
+
+                    <div class="absolute bottom-80 -right-10 w-16 h-10 bg-yellow-600 rounded-md shadow-lg transform -rotate-6 animate-[float_5.5s_ease-in-out_infinite]" style="animation-delay: 2s;">
+                        <div class="w-full h-full flex items-center justify-center text-white font-bold">🇿🇼</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-montserrat mb-6">What is XashPay?</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-12 text-gray-200">A WhatsApp-Based global payment service connecting you to essential services across borders. Individuals & businesses can conveniently buy and sell virtual essentials including airtime, data, electricity, and vouchers from multiple countries.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF4081] to-[#9C27B0]">
+                        <i class="fas fa-globe text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">International Reach</h3>
+                    <p class="text-gray-300">Connect with services across multiple African and Asian countries</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF4081] to-[#9C27B0]">
+                        <i class="fas fa-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Instant Delivery</h3>
+                    <p class="text-gray-300">Get your airtime, data, and vouchers delivered instantly via WhatsApp</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:transform hover:scale-105 transition-transform">
+                    <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-gradient-to-r from-[#FF4081] to-[#9C27B0]">
+                        <i class="fas fa-money-bill-wave text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Earn Commission</h3>
+                    <p class="text-gray-300">Become a reseller and earn upto 10% commission on every transaction</p>
+                </div>
+            </div>
+
+            <a href="whatsapp://send?phone=+27655971539" class="btn-gradient px-8 py-4 text-lg font-semibold rounded-full inline-flex items-center justify-center mt-12">
+                <i class="fab fa-whatsapp mr-2"></i> Sell on WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gradient-blue">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold font-montserrat mb-16 text-center">Our Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card p-8 text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Airtime & Data</h3>
+                    <p class="mb-6 text-gray-300">Instantly top up any phone number across multiple countries, anytime.</p>
+                    <div class="flex justify-center">
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold mr-2">Anytime</span>
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold">Anywhere</span>
+                    </div>
+                    <a href="whatsapp://send?phone=+27655971539" class="inline-block px-6 py-2 mt-6 rounded-full border border-[#FF4081] text-[#FF4081] hover:bg-[#FF4081] hover:text-white transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card p-8 text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Electricity</h3>
+                    <p class="mb-6 text-gray-300">Electricity is a basic need, XashPay got your back with instant top-ups.</p>
+                    <div class="flex justify-center">
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold mr-2">Instant</span>
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold">Reliable</span>
+                    </div>
+                    <a href="whatsapp://send?phone=+27655971539" class="inline-block px-6 py-2 mt-6 rounded-full border border-[#FF4081] text-[#FF4081] hover:bg-[#FF4081] hover:text-white transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card p-8 text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Pay Bills</h3>
+                    <p class="mb-6 text-gray-300">DSTV, Water bill, Insurance, Wifi, School Fees across multiple countries.</p>
+                    <div class="flex justify-center">
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold mr-2">Secure</span>
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold">Fast</span>
+                    </div>
+                    <a href="whatsapp://send?phone=+27655971539" class="inline-block px-6 py-2 mt-6 rounded-full border border-[#FF4081] text-[#FF4081] hover:bg-[#FF4081] hover:text-white transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card p-8 text-center">
+                    <div class="service-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Vouchers</h3>
+                    <p class="mb-6 text-gray-300">Taura Airtime, Wifi, OTT, and a lot more from various service providers.</p>
+                    <div class="flex justify-center">
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold mr-2">Variety</span>
+                        <span class="px-3 py-1 bg-[#00E676] text-[#0D47A1] rounded-full text-sm font-bold">Value</span>
+                    </div>
+                    <a href="whatsapp://send?phone=+27655971539" class="inline-block px-6 py-2 mt-6 rounded-full border border-[#FF4081] text-[#FF4081] hover:bg-[#FF4081] hover:text-white transition-colors">
+                        Get Started
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold font-montserrat mb-6 text-center">Global Reach</h2>
+            <p class="text-xl max-w-3xl mx-auto mb-12 text-center text-gray-300">XashPay connects you to services across multiple countries in Africa and beyond</p>
+
+            <!-- Partners Carousel -->
+            <div class="partners-carousel overflow-hidden mb-12">
+                <div class="partners-track flex items-center">
+                    <!-- Country flags will be dynamically added via JavaScript -->
+                </div>
+            </div>
+
+            <!-- World Map Visualization -->
+            <div class="max-w-4xl mx-auto mb-12 bg-white/5 rounded-xl p-6 backdrop-blur-sm">
+                <h3 class="text-2xl font-bold mb-6 text-center">Our Coverage</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇿🇦</span>
+                        <span>South Africa</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇳🇬</span>
+                        <span>Nigeria</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇰🇪</span>
+                        <span>Kenya</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇿🇼</span>
+                        <span>Zimbabwe</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇪🇹</span>
+                        <span>Ethiopia</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇹🇿</span>
+                        <span>Tanzania</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇺🇬</span>
+                        <span>Uganda</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇮🇳</span>
+                        <span>India</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇵🇰</span>
+                        <span>Pakistan</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇧🇼</span>
+                        <span>Botswana</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇨🇩</span>
+                        <span>DR Congo</span>
+                    </div>
+                    <div class="flex items-center space-x-2 p-2 rounded-lg hover:bg-white/10 transition-colors">
+                        <span class="text-2xl">🇸🇴</span>
+                        <span>Somalia</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="mailto:support@xashpay.com" class="btn-gradient px-8 py-4 text-lg font-semibold rounded-full inline-flex items-center justify-center">
+                    <i class="fas fa-handshake mr-2"></i> Become a partner
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="signup" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="commission-badge">
+                Get upto <span class="text-3xl">10%</span> Commission
+            </div>
+            <h2 class="text-3xl font-bold font-montserrat mb-4">SIMPLE • SAFE • FAST</h2>
+            <h3 class="text-4xl font-bold font-montserrat mb-8">Become a Reseller Today</h3>
+            <p class="text-xl max-w-3xl mx-auto mb-12 text-gray-300">Save money, save time with XashPay. Be number 1 in your community—start selling foreign countries' virtual services and earn upto 10% commission on every airtime and data sale you make.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-left">
+                    <h4 class="text-xl font-bold mb-4">How It Works</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="bg-[#FF4081] text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
+                            <span>Register on WhatsApp with your phone number</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-[#FF4081] text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
+                            <span>Complete a simple verification process</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-[#FF4081] text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
+                            <span>Start selling airtime, data, and other services</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="bg-[#FF4081] text-white w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">4</span>
+                            <span>Earn upto 10% commission on every transaction</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-left">
+                    <h4 class="text-xl font-bold mb-4">Benefits</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#00E676] mr-3 mt-1 flex-shrink-0"></i>
+                            <span>No startup costs or investment required</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#00E676] mr-3 mt-1 flex-shrink-0"></i>
+                            <span>Sell to customers in multiple countries</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#00E676] mr-3 mt-1 flex-shrink-0"></i>
+                            <span>Instant commission payments</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#00E676] mr-3 mt-1 flex-shrink-0"></i>
+                            <span>Full training and support provided</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-[#00E676] mr-3 mt-1 flex-shrink-0"></i>
+                            <span>Build your own customer network</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="whatsapp://send?phone=+27655971539" class="btn-gradient px-8 py-4 text-lg font-semibold rounded-full inline-flex items-center justify-center">
+                <i class="fas fa-rocket mr-2"></i> Register Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-16 bg-[#071a3b]">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Column 1 -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">How it works</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">API Docs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li><a href="whatsapp://send?phone=+27655971539" class="text-gray-400 hover:text-[#FF4081] transition-colors"><i class="fab fa-whatsapp mr-2"></i>WhatsApp</a></li>
+                        <li><a href="mailto:support@xashpay.com" class="text-gray-400 hover:text-[#FF4081] transition-colors"><i class="fas fa-envelope mr-2"></i>Email</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">How To Guides</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">Testimonials</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#FF4081] transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="text-xl font-bold mb-4 font-montserrat">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+
+                    <div class="mt-6">
+                        <h5 class="font-semibold mb-2">Register Now</h5>
+                        <p class="text-gray-400 text-sm mb-2">Start earning commission today</p>
+                        <a href="whatsapp://send?phone=+27655971539" class="inline-flex items-center text-[#00E676]">
+                            <i class="fab fa-whatsapp mr-2"></i> +27 6559 71539
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center text-gray-500 pt-8 border-t border-gray-800">
+                <p>© XASHPAY 2022. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
