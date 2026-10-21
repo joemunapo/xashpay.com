@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const root = fileURLToPath(new URL('../public/', import.meta.url));
-const pages = ['index.html', 'app-privacy/index.html', 'delete-app-account/index.html'];
+const pages = ['index.html', 'app-privacy/index.html', 'delete-app-account/index.html', 'terms-and-conditions/index.html'];
 
 test('all pages have working local links, assets and anchors', async () => {
   for (const page of pages) {
@@ -30,7 +30,7 @@ test('all pages have working local links, assets and anchors', async () => {
 });
 
 test('policies explain cancellation and retained records', async () => {
-  for (const page of pages.slice(1)) {
+  for (const page of pages.slice(1, 3)) {
     const html = await readFile(path.join(root, page), 'utf8');
     assert.match(html, /com\.xashpay\.app/);
     assert.match(html, /30.day/);
@@ -49,4 +49,13 @@ test('stylesheet fonts exist and include licences', async () => {
   for (const licence of ['OFL-BricolageGrotesque.txt', 'OFL-PublicSans.txt']) {
     assert.match(await readFile(path.join(root, 'fonts', licence), 'utf8'), /SIL OPEN FONT LICENSE/);
   }
+});
+
+test('terms explain provider confirmation and link to account policies', async () => {
+  const html = await readFile(path.join(root, 'terms-and-conditions/index.html'), 'utf8');
+  assert.match(html, /provider confirms successful delivery/);
+  assert.match(html, /pending, delayed or uncertain/);
+  assert.match(html, /rights or remedies that cannot lawfully be excluded/);
+  assert.match(html, /href="\/app-privacy\/"/);
+  assert.match(html, /href="\/delete-app-account\/"/);
 });
